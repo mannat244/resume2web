@@ -1,0 +1,52 @@
+"use client"
+import React, { useRef , useEffect, useState } from 'react'
+import Typed from 'typed.js';
+
+
+const Hero = ({func}) => {
+
+  const heroText = useRef()
+  const [subtitle, setsubtitle] = useState(false)
+
+  useEffect(() => {
+    const typed = new Typed(heroText.current, {
+      strings: ["Turn Your Resume into a Stunning Website in Minutes!"], // Plain text
+      typeSpeed: 30,
+      showCursor: false,
+      onStringTyped: () => {
+        heroText.current.innerHTML = `
+          Turn Your 
+          <span class=' transition-opacity duration-500 bg-gradient-to-r from-blue-600 via-indigo-400 to-green-400 text-transparent bg-clip-text'>Resume</span> 
+          into a 
+          <span class=' transition-opacity duration-500 bg-gradient-to-r from-indigo-400 via-red-400 to-pink-400 text-transparent bg-clip-text'>Stunning Website</span> 
+          in Minutes!
+        `;
+
+        setsubtitle(true)
+      },
+    });
+  
+    return () => {
+      typed.destroy()
+    }
+  }, [])
+  
+
+  return (
+    <div className='h-[80vh] flex flex-col justify-center items-center bg-black'>
+      <h1 ref={heroText} className='duration-500 text-[90px] font-bold text-center bg-gradient-to-r from-zinc-400 via-zinc-200 to-zinc-100 bg-clip-text text-transparent leading-none font-sans'></h1>
+      <p
+  className={`transition-opacity duration-500 max-w-[50%] text-center text-white mt-5 ${
+    subtitle ? "opacity-100" : "opacity-0"
+  }`}
+>
+  Instantly generate a professional portfolio from your resume—no coding
+  required. Showcase your skills, projects, and experience with a sleek,
+  customizable design.
+</p>
+     <button className={`${subtitle ? "opacity-100" : "opacity-0"} transition-opacity duration-500 hover:bg-white rounded-full hover:text-black text-white font-bold hover:shadow-md shadow-black/20 px-8 py-2 mx-auto mt-5`} onClick={func} >Get Started</button>
+    </div>
+  )
+}
+
+export default Hero
