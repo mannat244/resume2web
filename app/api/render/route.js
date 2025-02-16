@@ -4,9 +4,13 @@ export async function POST(req) {
 
     let { details } = await req.json();
 
-    let mdetails = details.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
-    console.log(mdetails)
-    details = JSON.parse(mdetails);
+    let cleaned = details.trim();
+  
+    cleaned = cleaned.replace(/^\s*```(?:\w+)?\s*/i, '');
+    
+    cleaned = cleaned.replace(/\s*```\s*$/i, '');
+    
+    details = JSON.parse(cleaned);
 
     const htmlContent = `
     <!DOCTYPE html>
@@ -146,7 +150,6 @@ export async function POST(req) {
         </section>
       </main>
       <footer>
-        <a href="data:text/html;charset=utf-8,${encodeURIComponent(htmlContent)}" download="portfolio.html">Download HTML</a>
         <p>&copy; ${new Date().getFullYear()} ${details?.name || "Portfolio"}. All rights reserved.</p>
       </footer>
     </body>
