@@ -25,7 +25,7 @@ export default function Home() {
       <NavBar/>
       <Hero func={handleGetStarted}/>
       <Features/>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 }

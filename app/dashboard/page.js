@@ -18,6 +18,9 @@ export default function Dashboard() {
 
   const uploadFile = async(e) =>{
     e.preventDefault()
+    setmessage("file upload start!")
+
+    
 
     if(!file)
       alert("please upload your resume")
@@ -30,9 +33,61 @@ export default function Dashboard() {
       body: formData,
     })
 
-    const data = await response.json()
+    const uploadResponse = await response.json()
 
-    console.log(data)
+    if(uploadResponse.status == 200){
+      setmessage("file uploaded!")
+
+
+      const response = await fetch('/api/extract',{
+        method:'POST',
+        body: JSON.stringify({"path": uploadResponse.url}),
+        headers: {
+          "Content-Type": "application/json",
+      },
+      })
+
+      const extractResponse = await response.json()
+  
+      if(extractResponse.status == 200){
+        setmessage("file extracted!")
+      
+        let cleanedJson = extractResponse.details;
+        console.log(cleanedJson)
+        setmessage("render start")
+
+
+        const renderResponse = await fetch('/api/render',{
+          method:'POST',
+          body: JSON.stringify({"details": cleanedJson}),
+          headers: {
+         "Content-Type": "application/json"
+        },
+        })
+  
+        setmessage("build started!")
+        if (!renderResponse.ok) throw new Error("Failed to generate HTML");
+
+        const html = await renderResponse.text();
+
+
+
+        setTimeout(() => {
+          try {
+            const newTab = window.open();
+            if (!newTab) {
+                throw new Error("Popup blocked! Please allow pop-ups for this site.");
+            }
+              newTab.document.write(html);
+              newTab.document.close();
+          } catch (err) {
+              console.error("Error writing to new tab:", err);
+          }
+      }, 100);
+
+
+      }
+    }
 
   }
 
