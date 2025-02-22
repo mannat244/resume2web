@@ -1,28 +1,10 @@
-import { NextResponse } from "next/server";
-import { writeFileSync } from "fs";
-import path from "path";
 
-const timestamp = Date.now();
-
-export async function POST(req) {
-
-    let { details } = await req.json();
-
-    let cleaned = details.trim();
-  
-    cleaned = cleaned.replace(/^\s*```(?:\w+)?\s*/i, '');
-    
-    cleaned = cleaned.replace(/\s*```\s*$/i, '');
-    
-    details = JSON.parse(cleaned);
-
-    const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - ${details?.name || 'Portfolio'}</title>
+    <title>Portfolio - Aditya Mishra</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -384,17 +366,17 @@ export async function POST(req) {
      <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <span class="nav-logo-full">${details?.name || 'Portfolio'}</span>
-                <span class="nav-logo-short">${details?.name?.split(' ').map(word => word[0]).join('') || 'P'}</span>
+                <span class="nav-logo-full">Aditya Mishra</span>
+                <span class="nav-logo-short">AM</span>
             </a>
             <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links">
-                ${details?.skills?.length ? `<li><a href="#skills"><i class="fas fa-tools"></i> <span>Skills</span></a></li>` : ''}
-                ${details?.work_experience?.length ? `<li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>` : ''}
-                ${details?.education?.length ? `<li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>` : ''}
-                ${details?.projects?.length ? `<li><a href="#projects"><i class="fas fa-code-branch"></i> <span>Projects</span></a></li>` : ''}
+                <li><a href="#skills"><i class="fas fa-tools"></i> <span>Skills</span></a></li>
+                
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>
+                
                 <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
             </ul>
         </div>
@@ -403,111 +385,78 @@ export async function POST(req) {
 
     <section class="hero">
         <div class="container hero-content">
-            <h1 class="hero-title">${details?.name || 'Welcome'}</h1>
+            <h1 class="hero-title">Aditya Mishra</h1>
             <div class="typed-text"></div>
         </div>
     </section>
 
-    ${details?.skills?.length ? `
+    
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
-                ${details.skills.map(skill => `
+                
                     <div class="skill-item" data-aos="fade-up">
-                        <h3>${skill}</h3>
+                        <h3>MS Excel</h3>
                     </div>
-                `).join('')}
+                
+                    <div class="skill-item" data-aos="fade-up">
+                        <h3>Communication (Hindi & English)</h3>
+                    </div>
+                
             </div>
         </div>
     </section>
-    ` : ''}
+    
 
     <!-- Rest of your sections remain the same -->
-    ${details?.work_experience?.length ? `
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                ${details.work_experience.map(exp => `
-                    <div class="timeline-item" data-aos="fade-left">
-                        <h3>${exp.position} at ${exp.company}</h3>
-                        <p>${exp.start_date} - ${exp.end_date}</p>
-                        <ul>
-                            ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-                        </ul>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    </section>
-    ` : ''}
+    
 
-    ${details?.education?.length ? `
+    
     <section id="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="timeline">
-                ${details.education.map(edu => `
+                
                     <div class="timeline-item" data-aos="fade-right">
-                        <h3>${edu.degree} ${edu.field_of_study ? `in ${edu.field_of_study}` : ''}</h3>
-                        <p>${edu.institution || ''}</p>
-                        <p>${edu.start_year || ''} - ${edu.end_year || ''}</p>
-                        ${edu.gpa ? `<p>GPA: ${edu.gpa}</p>` : ''}
+                        <h3>Class 12th in PCM</h3>
+                        <p>R.D.P.S Betul</p>
+                        <p> - 2023</p>
+                        
                     </div>
-                `).join('')}
+                
+                    <div class="timeline-item" data-aos="fade-right">
+                        <h3>Class 10th </h3>
+                        <p>R.D.P.S Betul</p>
+                        <p> - 2021</p>
+                        
+                    </div>
+                
             </div>
         </div>
     </section>
-    ` : ''}
+    
 
-    ${details?.projects?.length ? `
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                ${details.projects.map(project => `
-                    <div class="project-card" data-aos="fade-up">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="technologies">
-                            ${project.technologies.map(tech => `<span>${tech}</span>`).join(', ')}
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    </section>
-    ` : ''}
+    
 
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Contact</h2>
             <div class="contact-container">
-                ${details?.contact?.email ? `
-                    <a href="mailto:${details.contact.email}" class="contact-item" data-aos="fade-up">
+                
+                    <a href="mailto:adityamishraop04@gmail.com" class="contact-item" data-aos="fade-up">
                         <i class="fas fa-envelope"></i>
-                        <span>${details.contact.email}</span>
+                        <span>adityamishraop04@gmail.com</span>
                     </a>
-                ` : ''}
-                ${details?.contact?.phone ? `
+                
+                
                     <div class="contact-item" data-aos="fade-up">
                         <i class="fas fa-phone"></i>
-                        <span>${details.contact.phone}</span>
+                        <span>7099345991</span>
                     </div>
-                ` : ''}
-                ${details?.contact?.linkedin ? `
-                    <a href="${details.contact.linkedin}" class="contact-item" data-aos="fade-up" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                ` : ''}
-                ${details?.contact?.github ? `
-                    <a href="${details.contact.github}" class="contact-item" data-aos="fade-up" target="_blank">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                ` : ''}
+                
+                
+                
             </div>
         </div>
     </section>
@@ -559,9 +508,9 @@ export async function POST(req) {
 
 
         // Initialize Typed.js
-        if (${details?.hero?.greeting ? true : false}) {
+        if (true) {
             new Typed('.typed-text', {
-                strings: ['${details?.hero?.greeting || ''}'],
+                strings: ['Hello, I am Aditya Mishra, an aspiring business management professional seeking admission to the BMS program at ITM Sixmaux to develop expertise in business management, strategic planning, leadership, and the startup ecosystem.'],
                 typeSpeed:  30,
                 backSpeed: 30,
                 loop: false
@@ -600,38 +549,3 @@ export async function POST(req) {
     </script>
 </body>
 </html>
-`;
-    
-    
-    
-
-try{
-    console.log(htmlContent)
-
-    
-    const filePath = path.join(process.cwd(), "public", `portfolio_${timestamp}.html`);
-
-    console.log(`portfolio_${timestamp}.html`)
-
-    writeFileSync(filePath, htmlContent, "utf8");
-
-    return new NextResponse(htmlContent, {
-        status: 200,
-        headers: {
-            "Content-Type": "text/html",
-        }
-    })
-
-} catch (error) {
-    console.log(error)
-    return NextResponse.json({
-        details: error,
-        status: 502,
-    });
-
-    
-}
-
-}
-
-    

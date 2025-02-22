@@ -70,7 +70,7 @@ export default function Dashboard() {
 
         const html = await renderResponse.text();
 
-
+        
 
         setTimeout(() => {
           try {

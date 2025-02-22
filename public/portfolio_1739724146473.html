@@ -1,0 +1,244 @@
+
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+      <meta charset='UTF-8'>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+      <title>Portfolio - John Doe</title>
+      <style>
+        /* Global Styles */
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #121212;
+          color: #f5f5f5;
+          line-height: 1.6;
+        }
+        a {
+          color: #1e90ff;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+        header {
+          background-color: #1e1e1e;
+          padding: 20px;
+          text-align: center;
+        }
+        header h1 {
+          margin: 0;
+          font-size: 2rem;
+        }
+        nav {
+          margin-top: 15px;
+        }
+        nav ul {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+        nav ul li {
+          margin: 0 15px;
+        }
+        nav ul li a {
+          font-weight: bold;
+          font-size: 1rem;
+        }
+        main {
+          max-width: 1000px;
+          margin: 40px auto;
+          padding: 20px;
+        }
+        section {
+          margin-bottom: 40px;
+          background-color: #1e1e1e;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        section h2 {
+          border-bottom: 2px solid #1e90ff;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+        }
+        ul {
+          list-style-type: disc;
+          margin-left: 20px;
+        }
+        /* Project Cards */
+        .project-card-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 20px;
+        }
+        .project-card {
+          background-color: #2c2c2c;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+          transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+          transform: translateY(-5px);
+        }
+        .project-card h3 {
+          margin-top: 0;
+          font-size: 1.5rem;
+          color: #1e90ff;
+        }
+        footer {
+          background-color: #1e1e1e;
+          text-align: center;
+          padding: 20px;
+          margin-top: 40px;
+        }
+        @media (max-width: 600px) {
+          nav ul {
+            flex-direction: column;
+          }
+          nav ul li {
+            margin: 10px 0;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+        <h1>John Doe</h1>
+        <nav>
+          <ul>
+            
+            <li><a href='#contact'>Contact</a></li>
+            <li><a href='#experience'>Experience</a></li>
+            <li><a href='#education'>Education</a></li>
+            <li><a href='#skills'>Skills</a></li>
+            <li><a href='#tech-skills'>Technical Skills</a></li>
+            <li><a href='#certifications'>Certifications</a></li>
+            <li><a href='#projects'>Projects</a></li>
+            <li><a href='#awards'>Awards</a></li>
+            
+            
+            
+            
+          </ul>
+        </nav>
+      </header>
+      <main>
+        
+        
+        
+        <section id='contact'>
+          <h2>Contact</h2>
+          <p><strong>Phone:</strong> 111.111.1111</p>
+          <p><strong>Email:</strong> john.doe@example.com</p>
+          
+          <p><strong>LinkedIn:</strong> <a href='https://linkedin://johndoe' target='_blank'>linkedin://johndoe</a></p>
+          
+        </section>
+        
+        
+        <section id='experience'>
+          <h2>Work Experience</h2>
+          
+            <div>
+              <h3>ADVANCED DEVELOPMENT INTERN at COMPANY A</h3>
+              <p>May 2018 - Aug 2018</p>
+              <ul><li>Developed a cloud-based solution to automate and enhance the engineering process for network installation using AWS and Python.</li><li>Worked with other teams to create a system to collect and visualize telemetry data of network elements in real time using AWS, Python, and DOMO.</li><li>Consulted with other teams to jump start cloud-technology adoption and solutions throughout the company.</li><li>Contributed to initial planning for optics-alignment system utilizing AWS, reinforcement learning, and an IoT architecture.</li></ul>
+            </div>
+          
+            <div>
+              <h3>INTERN at COMPANY B</h3>
+              <p>Feb 2017 - Nov 2017</p>
+              <ul><li>Coordinated with multiple departments to lead a software product evaluation resulting in a fit-for-purpose verdict and provided a recommendation on moving forward.</li><li>Organized meetings with the vendor to receive in-depth product information and answers to cross-departmental questions.</li><li>Participated on the Web Development Taskforce to provide AngularJS sites to internal customers.</li><li>Participated in an internal CodeJam to prototype a blockchain application for managing a model supply-chain.</li><li>Worked with a team to plan executive visit and team-building exercise for 200 employees.</li></ul>
+            </div>
+          
+            <div>
+              <h3>ASSISTANT SUPPORT SPECIALIST at MY UNIVERSITY ITS</h3>
+              <p>Aug 2015 - Oct 2016</p>
+              <ul><li>Interacted with clients to assess their problems and implement a solution in an efficient, friendly manner.</li><li>Prepared workstations and laptops for future use by company employees.</li><li>Created scripts to automate common tasks and increase productivity.</li></ul>
+            </div>
+          
+        </section>
+        
+        
+        <section id='education'>
+          <h2>Education</h2>
+          
+            <div>
+              <p><strong>BACHELOR OF SCIENCE</strong> in COMPUTER SCIENCE WITH MINORS IN MATHEMATICS AND STATISTICS from MY UNIVERSITY (N/A - 2019) - GPA: 4.0 / 4.0</p>
+            </div>
+          
+        </section>
+        
+        
+        <section id='skills'>
+          <h2>Skills</h2>
+          <ul>
+            <li>Communication</li><li>Teamwork</li><li>Problem-solving</li><li>Leadership</li>
+          </ul>
+        </section>
+        
+        
+        <section id='tech-skills'>
+          <h2>Technical Skills</h2>
+          <ul>
+            <li>Python</li><li>C/C++</li><li>PHP</li><li>JavaScript</li><li>MATLAB</li><li>R</li><li>SAS</li><li>Git/GitHub</li><li>AWS</li><li>Linux</li><li>UNIX</li><li>Windows</li><li>ROS</li><li>Artificial Intelligence</li><li>Automation</li><li>AngularJS</li><li>DOMO</li>
+          </ul>
+        </section>
+        
+        
+        <section id='certifications'>
+          <h2>Certifications</h2>
+          <ul>
+            <li>Certified Scrum Master - Scrum Alliance (N/A)</li>
+          </ul>
+        </section>
+        
+        
+        <section id='projects'>
+          <h2>Projects</h2>
+          <div class='project-card-container'>
+            
+              <div class='project-card'>
+                <h3>Space Robotics Team</h3>
+                <p>Spearhead the development effort for the path planning functionality of a team of three robots. ROS provides movement servers and the planning is being implemented in Python to allow for fully-autonomous operation.</p>
+                <p><small>Technologies: ROS, Python</small></p>
+              </div>
+            
+              <div class='project-card'>
+                <h3>Chit Chat</h3>
+                <p>Lead the development of Chit Chat, an anonymous chat application created as a class project. Chit Chat provides real-time communication while utilizing a PHP backend and AngularJS frontend.</p>
+                <p><small>Technologies: PHP, AngularJS</small></p>
+              </div>
+            
+          </div>
+        </section>
+        
+        
+        <section id='awards'>
+          <h2>Awards</h2>
+          <ul>
+            <li>Dean's List (All Semesters)</li><li>National Merit Scholarship Finalist</li>
+          </ul>
+        </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </main>
+      <footer>
+        <p>&copy; 2025 John Doe. All rights reserved.</p>
+      </footer>
+    </body>
+    </html>
+    

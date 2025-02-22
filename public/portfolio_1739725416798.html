@@ -1,0 +1,288 @@
+
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+      <meta charset='UTF-8'>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+      <title>Portfolio - Mannat Trivedi</title>
+      <style>
+        /* Global Styles */
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #0e0e0e;
+          color: #e0e0e0;
+          line-height: 1.6;
+        }
+        a {
+          color: #1e90ff;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+        header {
+          position: relative;
+          background-color: #121212;
+          text-align: center;
+          padding: 80px 20px;
+          overflow: hidden;
+        }
+        header .hero-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.3;
+          z-index: -1;
+        }
+        header h1 {
+          margin: 0;
+          font-size: 3rem;
+          z-index: 1;
+        }
+        header p.hero-summary {
+          font-size: 1.25rem;
+          margin-top: 10px;
+          z-index: 1;
+        }
+        /* Simplified Navbar */
+        nav {
+          margin-top: 30px;
+        }
+        nav ul {
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          padding: 0;
+          margin: 0;
+        }
+        nav ul li a {
+          font-size: 1rem;
+          font-weight: bold;
+          padding: 8px 12px;
+          border-radius: 4px;
+          background-color: #1e1e1e;
+          transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+          background-color: #1e90ff;
+        }
+        main {
+          max-width: 1200px;
+          margin: 60px auto;
+          padding: 20px;
+        }
+        section {
+          margin-bottom: 60px;
+          padding: 40px;
+          border-radius: 8px;
+          background-color: #1a1a1a;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+        }
+        section h2 {
+          margin-bottom: 30px;
+          font-size: 2rem;
+          border-bottom: 2px solid #1e90ff;
+          padding-bottom: 10px;
+        }
+        /* Skills Chips */
+        .skills-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .skill-chip {
+          background-color: #2c2c2c;
+          padding: 10px 16px;
+          border-radius: 20px;
+          font-size: 0.9rem;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        /* Education Timeline */
+        .timeline {
+          border-left: 3px solid #1e90ff;
+          margin-left: 20px;
+          padding-left: 20px;
+        }
+        .timeline-item {
+          margin-bottom: 20px;
+          position: relative;
+        }
+        .timeline-item::before {
+          content: '';
+          position: absolute;
+          left: -12px;
+          top: 0;
+          width: 24px;
+          height: 24px;
+          background-color: #1e90ff;
+          border-radius: 50%;
+        }
+        /* Project Cards */
+        .project-card-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 20px;
+        }
+        .project-card {
+          background-color: #2c2c2c;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+          transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+          transform: translateY(-5px);
+        }
+        .project-card h3 {
+          margin-top: 0;
+          font-size: 1.5rem;
+          color: #1e90ff;
+        }
+        /* Contact Section */
+        .contact-info {
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+        .contact-info a {
+          color: #1e90ff;
+        }
+        footer {
+          background-color: #121212;
+          text-align: center;
+          padding: 20px;
+          margin-top: 40px;
+          font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+          nav ul {
+            flex-direction: column;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+        <div class='hero-background'></div>
+        <h1>Mannat Trivedi</h1>
+        <p class='hero-summary'>Hello, I am Mannat Trivedi, a passionate second-year Computer Science Engineering student at MANIT Bhopal focused on efficient web and software development.</p>
+        <nav>
+          <ul>
+            <li><a href='#home'>Home</a></li>
+            <li><a href='#my-work'>My Work</a></li>
+            <li><a href='#my-education'>My Education</a></li>
+            <li><a href='#offer'>What I Offer</a></li>
+            <li><a href='#contact'>Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <!-- My Work Section (Work Experience & Projects) -->
+        
+        <section id='my-work'>
+          <h2>My Work</h2>
+          
+          
+          <div>
+            <h3>Projects</h3>
+            <div class='project-card-container'>
+              
+                <div class='project-card'>
+                  <h3>InvenTrack - Inventory Management System</h3>
+                  <p>Developed a full-stack system for managing inventory with secure authentication.</p>
+                  <p><small>Technologies: Node.js, Express, MySQL, JWT, bcrypt</small></p>
+                </div>
+              
+                <div class='project-card'>
+                  <h3>Quizzy - Interactive Quiz Platform</h3>
+                  <p>Created a quiz website with real-time feedback; won 3rd place in the SpriteEra UI contest.</p>
+                  <p><small>Technologies: HTML, CSS, JavaScript</small></p>
+                </div>
+              
+                <div class='project-card'>
+                  <h3>Tidy Track - Campus Issue Tracker App</h3>
+                  <p>Designed and implemented an app for streamlining issue reporting at MANIT.</p>
+                  <p><small>Technologies: Java, XML, Volley</small></p>
+                </div>
+              
+                <div class='project-card'>
+                  <h3>NetSeries - OTT-style Movie Information Site</h3>
+                  <p>Integrated TMDB API for dynamic content updates showcasing movies and TV shows.</p>
+                  <p><small>Technologies: HTML, CSS, JavaScript</small></p>
+                </div>
+              
+            </div>
+          </div>
+        </section>
+        
+        <!-- My Education Section -->
+        
+        <section id='my-education'>
+          <h2>My Education</h2>
+          <div class='timeline'>
+            
+              <div class='timeline-item'>
+                <p><strong>B.Tech</strong> in Computer Science and Engineering from MANIT, Bhopal</p>
+                <p>2023 - 2027 </p>
+              </div>
+            
+              <div class='timeline-item'>
+                <p><strong>12th (CBSE Board)</strong> in Unknown Field from RD Public School, Betul</p>
+                <p>N/A - N/A - GPA: 91.4%</p>
+              </div>
+            
+          </div>
+        </section>
+        
+        <!-- What I Offer Section (Certifications, Awards, Publications, Volunteer Experience, Interests, Languages, Skills, Technical Skills) -->
+        
+        <section id='offer'>
+          <h2>What I Offer</h2>
+          
+          <div>
+            <h3>General Skills</h3>
+            <div class='skills-container'>
+              <span class='skill-chip'>C</span><span class='skill-chip'>C++</span><span class='skill-chip'>Java</span><span class='skill-chip'>JavaScript</span><span class='skill-chip'>HTML</span><span class='skill-chip'>CSS</span><span class='skill-chip'>React</span><span class='skill-chip'>Node.js</span><span class='skill-chip'>Express</span><span class='skill-chip'>MongoDB</span><span class='skill-chip'>SQL</span><span class='skill-chip'>Java</span><span class='skill-chip'>XML</span><span class='skill-chip'>VS Code</span><span class='skill-chip'>IntelliJ IDEA</span><span class='skill-chip'>Postman</span><span class='skill-chip'>Firebase</span><span class='skill-chip'>Git</span><span class='skill-chip'>GitHub</span><span class='skill-chip'>Figma</span><span class='skill-chip'>MERN Stack</span><span class='skill-chip'>JWT</span><span class='skill-chip'>bcrypt</span><span class='skill-chip'>REST APIs</span>
+            </div>
+          </div>
+          
+          
+          
+          <div>
+            <h3>Awards & Publications</h3>
+            <ul>
+              <li>Secured 3rd place in SpriteEra Frontend UI Contest</li>
+              
+            </ul>
+          </div>
+          
+          
+        </section>
+        
+        <!-- Contact Section -->
+        
+        <section id='contact'>
+          <h2>Contact</h2>
+          <div class='contact-info'>
+            <p>Phone: 9893483451</p>
+            <p>Email: <a href='mailto:mannateducation@gmail.com'>mannateducation@gmail.com</a></p>
+            
+            <p>GitHub: <a href='https://github.com/mannat244' target='_blank'>github.com/mannat244</a></p>
+            
+          </div>
+        </section>
+        
+      </main>
+      <footer>
+        <p>&copy; 2025 Mannat Trivedi. All rights reserved.</p>
+      </footer>
+    </body>
+    </html>
+    
