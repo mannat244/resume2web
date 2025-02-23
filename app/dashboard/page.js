@@ -42,7 +42,7 @@ export default function Dashboard() {
       id: 5,
       title: "Techy theme",
       desc: "Make your sw design",
-      img: " ",
+      img: "/demo_temp5.png",
     }
   ];
   
