@@ -2551,12 +2551,8 @@ let design5 =`<!DOCTYPE html>
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto auto;
             padding: 0 2rem;
             position: relative;
             z-index: 1;
@@ -2806,11 +2802,6 @@ let design5 =`<!DOCTYPE html>
                 order: 2;
             }
 
-            .hero-image {
-                order: 1;
-                height: 300px;
-                margin-bottom: 2rem;
-            }
 
             .hero-title {
                 font-size: 2.5rem;
@@ -2857,18 +2848,9 @@ let design5 =`<!DOCTYPE html>
         <div class="container hero-content">
             <h1 class="hero-title">${details?.name || 'Welcome'}</h1>
             <div class="typed-text"></div>
-
             <div class="hero-text">
-        <h1 class="hero-title">${details?.name || 'Welcome'}</h1>
-        <div class="typed-text"></div>
+        </div>
     </div>
-    <div class="hero-image">
-        <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="Profile Image">
-    </div>
-
-    </div>
-    
-
         </div>
     </section>
 
@@ -3077,7 +3059,8 @@ switch (templates) {
   case 3:
     htmlContent = design3;
     break;
-  case 4: htmlContent=design4;
+  case 4: 
+  htmlContent = design4;
     break;  
   default:
     htmlContent = design5;
@@ -3090,8 +3073,6 @@ try{
     const filePath = path.join(process.cwd(), "public", `portfolio_${timestamp}.html`);
 
     console.log(`portfolio_${timestamp}.html`)
-
-    const fileName = "portfolio_${timestamp}.html";
 
 
     writeFileSync(filePath, htmlContent, "utf8");

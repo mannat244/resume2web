@@ -13,6 +13,15 @@ export default function Dashboard() {
   const buttonRef = useRef(null);
 
 
+  const downloadFile = (name) => {
+    const link = document.createElement("a");
+    link.href = `/portfolio_${name}.html`;  
+    link.download = "index.html"; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+
 
   const alltemplates = [ 
     {
@@ -134,6 +143,7 @@ export default function Dashboard() {
   
         setmessage("👀 Rendering website preview...")
         buttonRef.current.disabled = false;
+        downloadFile(timestamp)
         if (!renderResponse.ok) {           
           setmessage("👀 Rendering failed...")
           throw new Error("Failed to generate HTML");
@@ -144,6 +154,8 @@ export default function Dashboard() {
         setTimeout(() => {
           try {
             setmessage("🚀 Website is ready!")
+
+
             const newTab = window.open();
             if (!newTab) {
                 throw new Error("Popup blocked! Please allow pop-ups for this site.");
