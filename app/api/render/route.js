@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import { writeFileSync ,fs , readFileSync} from "fs";
 import path from "path";
 
-const timestamp = Date.now();
+
 
 export async function POST(req) {
 
-    let { details , templates } = await req.json();
+    let { details , templates , timestamp } = await req.json();
 
     let cleaned = details.trim();
   
@@ -2414,6 +2414,9 @@ try{
     const filePath = path.join(process.cwd(), "public", `portfolio_${timestamp}.html`);
 
     console.log(`portfolio_${timestamp}.html`)
+
+    const fileName = "portfolio_${timestamp}.html";
+
 
     writeFileSync(filePath, htmlContent, "utf8");
 

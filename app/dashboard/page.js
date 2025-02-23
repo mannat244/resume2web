@@ -9,6 +9,7 @@ export default function Dashboard() {
   const [file, setfile] = useState()
   const [message, setmessage] = useState("")
   const [template, settemplate] = useState(1)
+  const [timestamp, settimestamp] = useState()
   const buttonRef = useRef(null);
 
 
@@ -73,11 +74,13 @@ export default function Dashboard() {
     if (buttonRef.current) {
       buttonRef.current.disabled = true;
     }
+    settimestamp(Date.now())
     setmessage("📤 Resume upload started...")
 
     if(!file){
       alert("please upload your resume")
       setmessage("❌ Resume upload failed...")
+      buttonRef.current.disabled = false;
       return;
     }
      
@@ -117,7 +120,7 @@ export default function Dashboard() {
 
         const renderResponse = await fetch('/api/render',{
           method:'POST',
-          body: JSON.stringify({"details": cleanedJson , "templates":template}),
+          body: JSON.stringify({"details": cleanedJson , "templates":template , "timestamp":timestamp }),
           headers: {
          "Content-Type": "application/json"
         },
