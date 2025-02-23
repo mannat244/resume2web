@@ -1,7 +1,9 @@
 "use client";
+import About from "./components/About";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+
 
 import NavBar from "./components/NavBar";
 import { useSession, signIn } from "next-auth/react";
@@ -24,6 +26,7 @@ export default function Home() {
     <div>
       <NavBar/>
       <Hero func={handleGetStarted}/>
+      <About/>
       <Features/>
       <Footer/>
     </div>
