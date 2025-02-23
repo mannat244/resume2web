@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [file, setfile] = useState()
   const [message, setmessage] = useState("")
   const [template, settemplate] = useState(1)
-  const [timestamp, settimestamp] = useState()
+  const timestamp = Date.now();
   const buttonRef = useRef(null);
 
 
@@ -50,8 +50,8 @@ export default function Dashboard() {
     },
     {
       id: 5,
-      title: "Techy theme",
-      desc: "Make your sw design",
+      title: "Futuristic Neon Tech Portfolio",
+      desc: "A sleek, blue-cyan design with a futuristic tech vibe.",
       img: "/demo_temp5.png",
     }
   ];
@@ -89,7 +89,7 @@ export default function Dashboard() {
     if (buttonRef.current) {
       buttonRef.current.disabled = true;
     }
-    settimestamp(Date.now())
+    console.log(timestamp)
     setmessage("📤 Resume upload started...")
 
     if(!file){
@@ -135,7 +135,7 @@ export default function Dashboard() {
 
         const renderResponse = await fetch('/api/render',{
           method:'POST',
-          body: JSON.stringify({"details": cleanedJson , "templates":template , "timestamp":timestamp }),
+          body: JSON.stringify({"details": cleanedJson , "templates":template , "timestamps":timestamp }),
           headers: {
          "Content-Type": "application/json"
         },
@@ -212,7 +212,72 @@ export default function Dashboard() {
           <button ref={buttonRef} className="px-10 py-2 bg-zinc-800 rounded-lg disabled:text-zinc-700 disabled:hover:bg-zinc-500 text-white font-semibold mt-5 hover:bg-zinc-700 " onClick={uploadFile}>Build My Portfolio</button>
           <p className="mt-5 font-semibold text-green-500">{message}</p>
         </form>
-        <div className="h-32"><p></p> </div>
+       
+        <div className="max-w-[80vw] mx-auto bg-zinc-900 p-6 rounded-lg shadow-md">
+    <h1 className="text-2xl font-bold text-white text-center">How to Publish Your Website Online?</h1>
+    <p className="text-normal text-zinc-400 mt-2 text-center">
+        You have your website ready with an <code>index.html</code> file. Now, let’s get it online for free using simple methods.
+    </p>
+
+    <div className="mt-5">
+        <h2 className="text-xl font-semibold text-white">🔹 1. Tiiny Host (Easiest Method)</h2>
+        <p className="text-zinc-400">
+            If you just want a quick and simple way to upload your site, use  
+            <a href="https://tiiny.host/" target="_blank" className="text-blue-400 font-medium"> Tiiny Host</a>. 
+            Drag and drop your <code>.html or a .zip</code> file containing <code>index.html</code>, and your site is live instantly.
+        </p>
+    </div>
+
+    <div className="mt-4">
+        <h2 className="text-xl font-semibold text-white">🔹 2. GitHub Pages (Best for Long-Term Hosting)</h2>
+        <p className="text-zinc-400">
+            If you have a GitHub account, you can use 
+            <a href="https://pages.github.com/" target="_blank" className="text-blue-400 font-medium"> GitHub Pages</a>.
+        </p>
+        <ol className="text-zinc-400 list-decimal pl-5">
+            <li>Create a new repository on GitHub.</li>
+            <li>Upload your <code>index.html</code> and other files.</li>
+            <li>Go to "Settings" → "Pages" and select the "main" branch.</li>
+            <li>Your website will be live at <code>https://yourusername.github.io/repositoryname/</code>.</li>
+        </ol>
+    </div>
+
+    <div className="mt-4">
+        <h2 className="text-xl font-semibold text-white">🔹 3. Netlify (Drag & Drop Hosting)</h2>
+        <p className="text-zinc-400">
+            <a href="https://www.netlify.com/" target="_blank" className="text-blue-400 font-medium">Netlify</a> allows you to deploy your website in seconds.
+        </p>
+        <ol className="text-zinc-400 list-decimal pl-5">
+            <li>Go to <a href="https://app.netlify.com/" className="text-blue-400 font-medium">Netlify</a> and sign in.</li>
+            <li>Drag and drop your project folder.</li>
+            <li>Netlify will instantly deploy your site and give you a free URL.</li>
+        </ol>
+    </div>
+
+    <div className="mt-4">
+        <h2 className="text-xl font-semibold text-white">🔹 4. Vercel (For Developers)</h2>
+        <p className="text-zinc-400">
+            <a href="https://vercel.com/" target="_blank" className="text-blue-400 font-medium">Vercel</a> is great if you're using GitHub. 
+            Just connect your repository, and it deploys automatically.
+        </p>
+    </div>
+
+    <div className="mt-4">
+        <h2 className="text-xl font-semibold text-white">🔹 5. Cloudflare Pages (Fast & Secure)</h2>
+        <p className="text-zinc-400">
+            <a href="https://pages.cloudflare.com/" target="_blank" className="text-blue-400 font-medium">Cloudflare Pages</a> provides free hosting with a global CDN for fast loading.
+            It's great for professional-looking static websites.
+        </p>
+    </div>
+
+    <div className="mt-6 p-4 bg-zinc-800 rounded-lg text-center">
+        <p className="text-zinc-400">
+            Choose the easiest method and get your website online in minutes! 🚀
+        </p>
+    </div>
+</div>
+
+
       </div>
       }
     </div>

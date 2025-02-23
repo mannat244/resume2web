@@ -26,7 +26,7 @@ try {
 
   return NextResponse.json({
     status: 200,
-    url: filepath,
+    url: filepath
   });
 
   } catch (error) {

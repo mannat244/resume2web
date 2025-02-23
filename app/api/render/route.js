@@ -6,7 +6,7 @@ import path from "path";
 
 export async function POST(req) {
 
-    let { details , templates , timestamp } = await req.json();
+    let { details , templates , timestamps } = await req.json();
 
     let cleaned = details.trim();
   
@@ -16,7 +16,7 @@ export async function POST(req) {
     
     details = JSON.parse(cleaned);
 
-    console.log(templates)
+    console.log(templates, timestamps)
     
 
 let design1 = `<!DOCTYPE html>
@@ -3069,13 +3069,21 @@ switch (templates) {
        
 try{
 
+    const filePath = path.join(process.cwd(), "public", `portfolio_${timestamps}.html`);
 
-    const filePath = path.join(process.cwd(), "public", `portfolio_${timestamp}.html`);
-
-    console.log(`portfolio_${timestamp}.html`)
+    console.log(`portfolio_${timestamps}.html`)
 
 
     writeFileSync(filePath, htmlContent, "utf8");
+
+    setTimeout(() => {
+        try {
+            fs.unlinkSync(filePath);
+            console.log("File deleted successfully!");
+        } catch (err) {
+            console.error("Error deleting file:", err);
+        }
+    }, 30000);
 
     return new NextResponse(htmlContent, {
         status: 200,
