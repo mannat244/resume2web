@@ -38,6 +38,12 @@ export default function Dashboard() {
       desc: "A cinematic dark theme with a bold interface.",
       img: "/demo_temp4.png",
     },
+    {
+      id: 5,
+      title: "Techy theme",
+      desc: "Make your sw design",
+      img: " ",
+    }
   ];
   
   
