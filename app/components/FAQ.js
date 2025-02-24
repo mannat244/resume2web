@@ -2,6 +2,7 @@ import React from 'react'
 import Questions from './Questions'
 
 const FAQ = () => {
+  
   return (
     <div className='bg-zinc-900 p-[40px] leading-[1.6rem]  '>
         <h1 className='text-4xl font-bold text-center  text-white p-[20px] mb-[30px]'  >Frequently Asked Questions</h1>

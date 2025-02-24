@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { writeFileSync ,fs , readFileSync} from "fs";
+import { writeFileSync ,fs , readFileSync , unlinkSync} from "fs";
 import path from "path";
 
 
@@ -1346,7 +1346,7 @@ body {
 }
 
 .hero-content {
-    display: grid;
+    
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
@@ -1361,12 +1361,7 @@ body {
     position: relative;
 }
 
-.hero-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: var(--border-radius);
-}
+
 
 .hero-title {
     font-size: 4rem;
@@ -1634,8 +1629,6 @@ section {
         <div class="container hero-content">
             <h1 class="hero-title">${details?.name || 'Welcome'}</h1>
             <div class="typed-text"></div>
-               <div class="hero-image">
-        <img src="/api/placeholder/500/500" alt="Profile Image">
     </div>
         </div>
     </section>
@@ -3078,7 +3071,7 @@ try{
 
     setTimeout(() => {
         try {
-            fs.unlinkSync(filePath);
+            unlinkSync(filePath);
             console.log("File deleted successfully!");
         } catch (err) {
             console.error("Error deleting file:", err);

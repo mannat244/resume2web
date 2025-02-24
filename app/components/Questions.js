@@ -2,6 +2,7 @@ import React from 'react'
 import {useEffect} from 'react'
 
 const Questions=({ques,answer})=>{
+    
     useEffect(() => {
         const script = document.createElement("script");
         script.src = "https://kit.fontawesome.com/04fddebb2c.js";
