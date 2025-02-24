@@ -3039,6 +3039,7 @@ let design5 =`<!DOCTYPE html>
     </script>
 </body>
 </html>`;
+
 let design6 =`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3047,11 +3048,12 @@ let design6 =`<!DOCTYPE html>
     <title>Portfolio - ${details?.name || 'Portfolio'}</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
+
+	  :root {
     --primary: #1a1a1a;
     --secondary: #333333;
     --accent: #d4af37;
@@ -3729,7 +3731,8 @@ section::before {
     opacity: 1;
     transform: translateY(0);
 }
-</style>
+	
+    </style>
 </head>
 <body>
      <nav class="navbar">
@@ -3742,10 +3745,10 @@ section::before {
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links">
-                ${details?.skills?.length ? <li><a href="#skills"><i class="fas fa-tools"></i> <span>Skills</span></a></li> : ''}
-                ${details?.work_experience?.length ? <li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li> : ''}
-                ${details?.education?.length ? <li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li> : ''}
-                ${details?.projects?.length ? <li><a href="#projects"><i class="fas fa-code-branch"></i> <span>Projects</span></a></li> : ''}
+                ${details?.skills?.length ? `<li><a href="#skills"><i class="fas fa-tools"></i> <span>Skills</span></a></li>` : ''}
+                ${details?.work_experience?.length ? `<li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>` : ''}
+                ${details?.education?.length ? `<li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>` : ''}
+                ${details?.projects?.length ? `<li><a href="#projects"><i class="fas fa-code-branch"></i> <span>Projects</span></a></li>` : ''}
                 <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
             </ul>
         </div>
@@ -3759,7 +3762,7 @@ section::before {
             <div class="typed-text"></div>
         </div>
         <div class="hero-image" data-aos="fade-left">
-            <img src="/api/placeholder/800/1000" alt="Fashion Designer Portrait">
+            <img src="http://localhost:3000/girl.png" alt="Fashion Designer Portrait">
         </div>
     </div>
 </section>
@@ -3790,7 +3793,7 @@ section::before {
                         <h3>${exp.position} at ${exp.company}</h3>
                         <p>${exp.start_date} - ${exp.end_date}</p>
                         <ul>
-                            ${exp.responsibilities.map(resp => <li>${resp}</li>).join('')}
+                            ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
                         </ul>
                     </div>
                 `).join('')}
@@ -3826,7 +3829,7 @@ section::before {
                         <h3>${project.title}</h3>
                         <p>${project.description}</p>
                         <div class="technologies">
-                            ${project.technologies.map(tech => <span>${tech}</span>).join(', ')}
+                            ${project.technologies.map(tech => `<span>${tech}</span>`).join(', ')}
                         </div>
                     </div>
                 `).join('')}
@@ -3867,10 +3870,9 @@ section::before {
         </div>
     </section>
 
-    <div class="scroll-top">↑</div>
+    <div class="scroll-top">↑</div> 
 
     <script>
-
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         let isMenuOpen = false;

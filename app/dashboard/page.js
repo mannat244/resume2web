@@ -57,8 +57,8 @@ export default function Dashboard() {
     {
       id:6,
       title:"Fashion-Designer Portfolio",
-      desc:"Fancy",
-      img:" ",
+      desc:"A stylish and elegant portfolio for fashion designers.",
+      img:"/demo_temp6.png",
     }
   ];
   
