@@ -25,8 +25,8 @@ const Questions=({ques,answer})=>{
                 
             </div>
             
-            { view && <div className='hidden'>
-                <p className='text-sm text-gray-300' >{answer}</p>
+            { view && <div>
+                <p className='text-base text-gray-300' >{answer}</p>
             </div>}
         </div>
     )

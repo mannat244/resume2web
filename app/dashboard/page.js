@@ -53,6 +53,12 @@ export default function Dashboard() {
       title: "Futuristic Neon Tech Portfolio",
       desc: "A sleek, blue-cyan design with a futuristic tech vibe.",
       img: "/demo_temp5.png",
+    },
+    {
+      id:6,
+      title:"Fashion-Designer Portfolio",
+      desc:"Fancy",
+      img:" ",
     }
   ];
   
