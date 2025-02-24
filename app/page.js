@@ -1,6 +1,7 @@
 "use client";
 import About from "./components/About";
 import Features from "./components/Features";
+import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <Hero func={handleGetStarted}/>
       <About/>
       <Features/>
+      <FAQ/>
       <Footer/>
     </div>
   );
