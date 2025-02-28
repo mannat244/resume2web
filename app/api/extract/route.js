@@ -9,9 +9,9 @@ const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-flash' });
 
 export async function POST(req) {
     const data = await req.json()
-    console.log(data)
+    // console.log(data)
     const filepath = await data.path ;
-    console.log(filepath)
+    // console.log(filepath)
 
     try {
 
@@ -28,7 +28,7 @@ export async function POST(req) {
 
         setTimeout(() => {
             try {
-                unlinkSync(filepath);
+                unlinkSync(filepath);  
                 console.log("Upload File deleted successfully!");
             } catch (err) {
                 console.error("Error upload deleting file:", err);
