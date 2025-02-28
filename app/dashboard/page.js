@@ -192,7 +192,7 @@ export default function Dashboard() {
            { logout && <button className="absolute top-[70px] right-5 font-bold bg-red-500 px-1 py-1 rounded-md" onClick={() => signOut()}>Logout</button>}</div>}
           </div>
 
-      { !session && <div className="flex flex-col text-white text-2xl h-[80vh] items-center justify-center">
+      { !session && <div className="flex flex-col text-white text-2xl h-[100svh] items-center justify-center">
          <h1>You're not logged in</h1>
          <button className="bg-zinc-600 px-2 py-1 rounded-lg mt-10 text-white font-semibold"  onClick={() => signIn("google")}>Login</button>
         </div> }
