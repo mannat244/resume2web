@@ -1,9 +1,9 @@
 "use client"
-import React, { useRef , useEffect, useState } from 'react'
+import React, { useRef , useEffect, useState, forwardRef } from 'react'
 import Typed from 'typed.js';
 
 
-const Hero = ({func}) => {
+const Hero = forwardRef((props , ref) => {
 
   const heroText = useRef()
   const [subtitle, setsubtitle] = useState(false)
@@ -33,10 +33,10 @@ const Hero = ({func}) => {
   
 
   return (
-    <div className='h-[100vh] flex flex-col justify-center items-center bg-zinc-900'>
-      <h1 ref={heroText} className='duration-500 text-[90px] font-bold text-center bg-gradient-to-r from-zinc-400 via-zinc-200 to-zinc-100 bg-clip-text text-transparent leading-none font-sans'></h1>
+    <div ref={ref} className='h-[100svh] flex flex-col justify-center items-center bg-zinc-900'>
+      <h1 ref={heroText} className='duration-500 text-[60px] md:text-[90px] font-bold text-center bg-gradient-to-r from-zinc-400 via-zinc-200 to-zinc-100 bg-clip-text text-transparent leading-none font-sans'></h1>
       <p
-  className={`transition-opacity duration-500 max-w-[50%] text-center text-white mt-10 ${
+  className={`transition-opacity duration-500 max-w-[80%] md:max-w-[50%] text-center text-white mt-10 ${
     subtitle ? "opacity-100" : "opacity-0"
   }`}
 >
@@ -44,9 +44,9 @@ const Hero = ({func}) => {
   required. Showcase your skills, projects, and experience with a sleek,
   customizable design.
 </p>
-     <button className={`${subtitle ? "opacity-100" : "opacity-0"} transition-opacity duration-500 hover:bg-white rounded-full hover:text-black text-white font-bold hover:shadow-md shadow-black/20 px-8 py-2 mx-auto mt-24 border-white border-3`} onClick={func} >Get Started</button>
+     <button className={`${subtitle ? "opacity-100" : "opacity-0"} transition-opacity duration-500 hover:bg-white rounded-full hover:text-black text-white font-bold hover:shadow-md shadow-black/20 px-8 py-2 mx-auto mt-16 md:mt-24 border-white border-3`} onClick={props.func} >Get Started</button>
     </div>
   )
-}
+})
 
 export default Hero

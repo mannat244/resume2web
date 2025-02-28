@@ -187,7 +187,7 @@ export default function Dashboard() {
   return (
     <div className="bg-zinc-900 h-[fit]">
       <div className="bg-zinc-800 h-14 flex items-center">
-        <h1 className="text-xl font-semibold text-white  ml-5">Resume2Web</h1>
+        <h1 onClick={() => {window.location.href = "/"}} className="text-xl hover:cursor-pointer font-semibold text-white  ml-5">Resume2Web</h1>
         {session && <div className="flex items-center cursor-pointer  font-medium ml-auto mr-5 text-white" onClick={()=>{setlogout(!logout)}}> <h1>{session.user.name}</h1>
            { logout && <button className="absolute top-[70px] right-5 font-bold bg-red-500 px-1 py-1 rounded-md" onClick={() => signOut()}>Logout</button>}</div>}
           </div>

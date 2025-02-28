@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import Questions from './Questions'
 
-const FAQ = () => {
+const FAQ = forwardRef((props, ref) => {
   
   return (
-    <div className='bg-zinc-900 p-[40px] leading-[1.6rem]  '>
+    <div ref={ref} className='bg-zinc-900 p-[40px] leading-[1.6rem]  '>
         <h1 className='text-4xl font-bold text-center  text-white p-[20px] mb-[30px]'  >Frequently Asked Questions</h1>
         <Questions ques="What is Resume2Web?" answer="Resume2Web is a free online tool that converts your resume into a professional portfolio website. Simply upload your resume, and our AI-powered system will generate a fully functional website showcasing your skills, experience, and projects."/>
         <Questions ques="Do I need coding knowledge to use Resume2Web?" answer="No! Resume2Web is designed for everyone, even if you have no coding experience. Just upload your resume, and we take care of the rest—creating a well-structured and visually appealing portfolio for you."/>
@@ -13,6 +13,6 @@ const FAQ = () => {
         <Questions ques="What file formats are supported for uploading my resume?" answer="Resume2Web supports resumes in PDF formats. Simply upload your file, and we will extract the necessary details to create your portfolio website."/>
     </div>
   )
-}
+})
 
 export default FAQ

@@ -9,6 +9,7 @@ import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
 
 export default function Home() {
 
@@ -23,13 +24,23 @@ export default function Home() {
     }
   };
 
+
+  const Aboutref = useRef()
+  const Heroref = useRef()
+  const FAQref = useRef()
+  const Featuresref = useRef()
+
+  const scrollfunc = (ref) =>{
+    ref.current?.scrollIntoView({behavior: "smooth"})
+  }
+
   return (
     <div>
-      <NavBar/>
-      <Hero func={handleGetStarted}/>
-      <About/>
-      <Features/>
-      <FAQ/>
+      <NavBar scrollfunc={scrollfunc} refs={{Aboutref,Heroref,FAQref,Featuresref}} />
+      <Hero ref={Heroref} func={handleGetStarted}/>
+      <About ref={Aboutref}/>
+      <Features ref={Featuresref}/>
+      <FAQ ref={FAQref}/>
       <Footer/>
     </div>
   );

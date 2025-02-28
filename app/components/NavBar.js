@@ -1,15 +1,14 @@
-import Link from 'next/link'
 import React from 'react'
 
-const NavBar = () => {
+const NavBar = ({scrollfunc , refs}) => {
   return (
     <div className='bg-zinc-900 shadow-lg shadow-black/30 h-14 flex justify-center items-center text-white '>
-      <img src='/vercel.svg' className='h-8 ml-5 mr-auto'/>
+      <img onClick={() => {window.location.href = "/"}} src='/vercel.svg' className='h-8 ml-5 mr-auto'/>
       <div className='flex items-center justify-center font-sans gap-10 font-semibold mr-10'>
-      <Link href='/'>Home</Link>
-      <Link href='/'>Features</Link>
-      <Link href='/'>FAQs</Link>
-      <Link href='/'>About</Link>
+        <button onClick={() => scrollfunc(refs?.Heroref)}>Home</button>
+        <button onClick={() => scrollfunc(refs?.Aboutref)}>Features</button>
+        <button onClick={() => scrollfunc(refs?.Featuresref)}>How It Works</button>
+        <button onClick={() => scrollfunc(refs?.FAQref)}>FAQs</button>
       </div>
     </div>
   )
