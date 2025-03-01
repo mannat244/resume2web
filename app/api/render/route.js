@@ -4640,7 +4640,7 @@ try{
         } catch (err) {
             console.error("Error deleting file:", err);
         }
-    }, 30000);
+    }, 100000);
 
     return new NextResponse(htmlContent, {
         status: 200,
