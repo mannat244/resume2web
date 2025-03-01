@@ -14,12 +14,7 @@ export default function Dashboard() {
 
 
   const downloadFile = (name) => {
-    const link = document.createElement("a");
-    link.href = `/portfolio_${name}.html`;  
-    link.download = "index.html"; 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.location.href = `/portfolio_${name}.html`;  
 };
 
 
