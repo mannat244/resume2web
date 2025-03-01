@@ -4636,9 +4636,10 @@ try{
 
     return new NextResponse(htmlContent, {
         status: 200,
-        headers: {
-            "Content-Type": "text/html",
-        }
+            headers: {
+                "Content-Type": "text/html",
+                "Content-Disposition": `attachment; filename="portfolio_${timestamps}.html"`,
+            },
     })
 
 } catch (error) {

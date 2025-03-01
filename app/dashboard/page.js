@@ -151,17 +151,24 @@ export default function Dashboard() {
 
         const html = await renderResponse.text();
 
-        setTimeout(() => {
+        setTimeout(async() => {
           try {
             setmessage("🚀 Website is ready!")
 
+            const blob = await response.blob();
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `portfolio_${timestamp}.html`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
-            const newTab = window.open();
-            if (!newTab) {
-                throw new Error("Popup blocked! Please allow pop-ups for this site.");
-            }
-              newTab.document.write(html);
-              newTab.document.close();
+            // const newTab = window.open();
+            // if (!newTab) {
+            //     throw new Error("Popup blocked! Please allow pop-ups for this site.");
+            // }
+            //   newTab.document.write(html);
+            //   newTab.document.close();
           } catch (err) {
               console.error("Error writing to new tab:", err);
           }
