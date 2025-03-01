@@ -13,9 +13,28 @@ export default function Dashboard() {
   const buttonRef = useRef(null);
 
 
-  const downloadFile = (name) => {
-    window.location.href = `/portfolio_${name}.html`;  
+  const downloadFile = async (timestamp) => {
+    const fileName = `portfolio_${timestamp}.html`;
+    const fileUrl = `/api/download?file=${fileName}`;
+
+    try {
+        const response = await fetch(fileUrl);
+        if (!response.ok) {
+            throw new Error("Failed to download file");
+        }
+
+        const blob = await response.blob();
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } catch (error) {
+        console.error("Download error:", error);
+    }
 };
+
 
 
   const alltemplates = [ 

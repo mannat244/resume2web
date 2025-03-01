@@ -4626,7 +4626,7 @@ switch (templates) {
        
 try{
 
-    const filePath = path.join(process.cwd(), "public", `portfolio_${timestamps}.html`);
+    const filePath = path.join(process.cwd(), "tmp", `portfolio_${timestamps}.html`);
 
     console.log(`portfolio_${timestamps}.html`)
 
