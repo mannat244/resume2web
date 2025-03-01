@@ -4633,14 +4633,6 @@ try{
 
     writeFileSync(filePath, htmlContent, "utf8");
 
-    setTimeout(() => {
-        try {
-            unlinkSync(filePath);
-            console.log("File deleted successfully!");
-        } catch (err) {
-            console.error("Error deleting file:", err);
-        }
-    }, 100000);
 
     return new NextResponse(htmlContent, {
         status: 200,
@@ -4655,8 +4647,6 @@ try{
         details: error,
         status: 502,
     });
-
-    
 }
 
 }
