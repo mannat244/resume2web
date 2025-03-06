@@ -4630,16 +4630,23 @@ try{
 
     console.log(`portfolio_${timestamps}.html`)
 
-
     writeFileSync(filePath, htmlContent, "utf8");
+
+    setTimeout(() => {
+        try {
+            unlinkSync(filePath);  
+            console.log("HTML File deleted successfully!");
+        } catch (err) {
+            console.error("Error HTML deleting file:", err);
+        }
+    }, 60000);
 
 
     return new NextResponse(htmlContent, {
         status: 200,
-            headers: {
-                "Content-Type": "text/html",
-                "Content-Disposition": `attachment; filename="portfolio_${timestamps}.html"`,
-            },
+        headers: {
+            "Content-Type": "text/html",
+        }
     })
 
 } catch (error) {
