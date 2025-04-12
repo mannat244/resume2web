@@ -3,6 +3,10 @@
 ## Introduction
 Resume2Web is a powerful tool designed to help users convert their resumes into fully functional, professional-looking static websites. The main goal of this project is to provide a simple yet effective solution for professionals who want to showcase their skills and experience online without manually designing a website.
 
+## What's New?
+✅ Cloudinary Integration – We’ve replaced local file handling with Cloudinary, making the app fully compatible with serverless platforms like Vercel.
+✅ Deployed Live – Visit the live app at: https://resume2webcloud.vercel.app
+
 ## Why We Built Resume2Web
 Creating an online portfolio or resume website often requires knowledge of web development, hosting, and design principles. Many professionals struggle with this process, which is why Resume2Web was built:
 - **Automated Conversion**: Users can upload their resumes, and the system will generate a clean, structured website from it.
@@ -36,7 +40,7 @@ Resume2Web is divided into three main API endpoints that handle the core functio
 - Generates a static HTML page ready for download.
 
 ## Deployment Limitations on Vercel
-Due to Vercel's limitations on writing to disk, **this project will NOT run properly on a deployed Vercel link**. The rendering process requires saving and modifying files temporarily, which is restricted in Vercel's serverless environment.
+Due to Vercel's limitations on writing to disk, **this project will NOT run properly on a deployed Vercel link**. The rendering process requires saving and modifying files temporarily, which is restricted in Vercel's serverless environment. But now you can use the resume2web cloud version deployed at https://resume2webcloud.vercel.app
 
 ### **To Run This Project Locally:**
 1. **Clone the repository:**
